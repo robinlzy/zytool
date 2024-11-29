@@ -10,14 +10,14 @@ declare(strict_types=1);
  * @license  https://github.com/mineadmin/MineAdmin/blob/master/LICENSE
  */
 
-namespace Ziyanco\Zytool\Command;
+namespace Ziyancs\Zytool\Command;
 
 
 use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Input\InputArgument;
-use function Ziyanco\Library\Command\snakeToCamel;
+use function Ziyancs\Library\Command\snakeToCamel;
 
 #[Command]
 class ModelCommand extends HyperfCommand

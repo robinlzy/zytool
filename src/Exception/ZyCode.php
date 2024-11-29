@@ -1,5 +1,5 @@
 <?php
-namespace Ziyanco\Zytool\Exception;
+namespace Ziyancs\Zytool\Exception;
 
 
 class ZyCode

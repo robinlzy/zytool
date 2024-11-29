@@ -1,6 +1,6 @@
 <?php
 
-namespace Ziyanco\Zytool\Extends;
+namespace Ziyancs\Zytool\Extends;
 
 use function Hyperf\Coroutine\go;
 use Hyperf\Redis\Redis;

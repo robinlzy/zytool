@@ -1,6 +1,6 @@
 <?php
 
-namespace Ziyanco\Zytool\Exception;
+namespace Ziyancs\Zytool\Exception;
 
 class ZyException extends \RuntimeException
 {

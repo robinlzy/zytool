@@ -1,5 +1,5 @@
 <?php
-namespace Ziyanco\Zytool\Sub\Sms;
+namespace Ziyancs\Zytool\Sub\Sms;
 
 use GuzzleHttp\Client;
 
@@ -45,7 +45,7 @@ class HuaweiSms
             if ($resData['code'] != '000000' || $resData['description'] != 'Success') {
                 throw new \ErrorException('短信发送失败');
             }
-            \Ziyanco\Library\Tool\RedisOptions::set(sprintf(HuaweiSms::REDIS_KEY_SEND_PHONE, $mobile), $code, $aliRedisUseTime);
+            \Ziyancs\Library\Tool\RedisOptions::set(sprintf(HuaweiSms::REDIS_KEY_SEND_PHONE, $mobile), $code, $aliRedisUseTime);
             return true;
         } catch (\Throwable $e) {
             throw new \ErrorException('短信发送失败');

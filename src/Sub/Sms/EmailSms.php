@@ -1,5 +1,5 @@
 <?php
-namespace Ziyanco\Zytool\Sub\Sms;
+namespace Ziyancs\Zytool\Sub\Sms;
 
 class EmailSms{
 

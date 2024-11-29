@@ -1,9 +1,9 @@
 <?php
 
-namespace Ziyanco\Zytool\Sub\Sms;
+namespace Ziyancs\Zytool\Sub\Sms;
 
-use Ziyanco\Library\Extends\RequestLibrary;
-use Ziyanco\Library\Tool\RedisOptions;
+use Ziyancs\Library\Extends\RequestLibrary;
+use Ziyancs\Library\Tool\RedisOptions;
 
 class AliyunSms
 {

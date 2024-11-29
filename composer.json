@@ -4,7 +4,7 @@
     "type": "tool",
     "autoload": {
         "psr-4": {
-            "Ziyanco\\Zytool\\": "src/"
+            "Ziyancs\\Zytool\\": "src/"
         }
     },
     "authors": [

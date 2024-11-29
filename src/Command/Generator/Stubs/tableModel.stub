@@ -15,7 +15,7 @@ class {CLASS_NAME}Model extends {CLASS_NAME}
           public function getInfoById($id)
           {
               $redisKey = makeRedisTableKeyByMethod($id, $this->table);
-              $res = \Ziyanco\Library\Tool\CacheOption::rememberForever($redisKey, function () use ($id) {
+              $res = \Ziyancs\Library\Tool\CacheOption::rememberForever($redisKey, function () use ($id) {
                   $data = $this::query()
                       ->where('id', $id)
                       ->first();
@@ -34,7 +34,7 @@ class {CLASS_NAME}Model extends {CLASS_NAME}
            */
           public function getList($params)
           {
-              $data = \Ziyanco\Library\Tool\CacheOption::rememberHash($this->table . ':list', md5(json_encode($params)), function () use ($params) {
+              $data = \Ziyancs\Library\Tool\CacheOption::rememberHash($this->table . ':list', md5(json_encode($params)), function () use ($params) {
                   $query = $this->listQuerySetting($params);
                   $res = $query->get();
                   $resToArr = $res->isEmpty() ? [] : $res->toArray();
@@ -50,7 +50,7 @@ class {CLASS_NAME}Model extends {CLASS_NAME}
            */
           public function getPageList($params)
           {
-              $data = \Ziyanco\Library\Tool\CacheOption::rememberHash($this->table . ':page_list',  md5(json_encode($params)),function () use ($params) {
+              $data = \Ziyancs\Library\Tool\CacheOption::rememberHash($this->table . ':page_list',  md5(json_encode($params)),function () use ($params) {
                   $query = $this->listQuerySetting($params);
                   $res = $query->paginate(
                       (int)($params['pageSize'] ?? \App\Constants\UsEnum::PAGE_SIZE),

@@ -1,5 +1,5 @@
 <?php
-namespace Ziyanco\Zytool\Extends;
+namespace Ziyancs\Zytool\Extends;
 
 class IdCardScript
 {

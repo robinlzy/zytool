@@ -1,6 +1,6 @@
 <?php
 
-namespace Ziyanco\Zytool\Extends;
+namespace Ziyancs\Zytool\Extends;
 
 use GuzzleHttp\Client;
 

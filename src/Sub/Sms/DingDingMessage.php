@@ -1,9 +1,9 @@
 <?php
 
-namespace Ziyanco\Zytool\Sub\Sms;
+namespace Ziyancs\Zytool\Sub\Sms;
 
 
-use Ziyanco\Zytool\Extends\RequestLibrary;
+use Ziyancs\Zytool\Extends\RequestLibrary;
 
 class DingDingMessage
 {

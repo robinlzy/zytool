@@ -1,6 +1,6 @@
 <?php
 
-namespace Ziyanco\Zytool\Sub\Check;
+namespace Ziyancs\Zytool\Sub\Check;
 
 class GoogleCaptcha
 {
