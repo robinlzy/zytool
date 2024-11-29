@@ -1,5 +1,5 @@
 {
-    "name": "Ziyancs/zytool",
+    "name": "ziyancs/zytool",
     "description": "dev",
     "type": "tool",
     "autoload": {
@@ -9,8 +9,7 @@
     },
     "authors": [
         {
-            "name": "zy",
-            "email": "lzy_3001@163.com"
+            "name": "ziyan"
         }
     ],
     "minimum-stability": "dev",
