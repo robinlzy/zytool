@@ -1,0 +1,98 @@
+<?php
+declare (strict_types=1);
+
+namespace App\Model;
+
+use App\Model\Table\{CLASS_NAME};
+
+class {CLASS_NAME}Model extends {CLASS_NAME}
+{
+          /**
+           * 根据id进行查询
+           * @param $id
+           * @return mixed|null
+           */
+          public function getInfoById($id)
+          {
+              $redisKey = makeRedisTableKeyByMethod($id, $this->table);
+              $res = \Ziyanco\Library\Tool\CacheOption::rememberForever($redisKey, function () use ($id) {
+                  $data = $this::query()
+                      ->where('id', $id)
+                      ->first();
+                  if (!empty($data)) {
+                      return $data->toArray();
+                  }
+                  return [];
+              });
+              return $res;
+          }
+
+          /**
+           * 获取列表
+           * @param $params
+           * @return mixed|null
+           */
+          public function getList($params)
+          {
+              $data = \Ziyanco\Library\Tool\CacheOption::rememberHash($this->table . ':list', md5(json_encode($params)), function () use ($params) {
+                  $query = $this->listQuerySetting($params);
+                  $res = $query->get();
+                  $resToArr = $res->isEmpty() ? [] : $res->toArray();
+                  return $resToArr;
+              });
+              return $data;
+          }
+
+          /**
+           * 获取分页列表
+           * @param $params
+           * @return mixed|null
+           */
+          public function getPageList($params)
+          {
+              $data = \Ziyanco\Library\Tool\CacheOption::rememberHash($this->table . ':page_list',  md5(json_encode($params)),function () use ($params) {
+                  $query = $this->listQuerySetting($params);
+                  $res = $query->paginate(
+                      (int)($params['pageSize'] ?? \App\Constants\UsEnum::PAGE_SIZE),
+                      ['*'],
+                      'page',
+                      (int)($params['page'] ?? 1)
+                  );
+                  $res = $res->isEmpty() ? [] : $res->toArray();
+                  return $res;
+              });
+              return $data;
+          }
+
+          /**
+           * 产品更新
+           * @param $id
+           * @param $updateData
+           * @return bool|int
+           */
+          public function updateDataById($id, $updateData)
+          {
+              $info = $this->where('id', $id)->first();
+              return $info->update($updateData);
+          }
+
+          /**
+           * 创建数据
+           * @param $data
+           * @return BoxProductModel|\Hyperf\Database\Model\Builder|\Hyperf\Database\Model\Model
+           */
+          public function createData($data)
+          {
+              return $this::query()->create($data);
+          }
+
+          /**
+           * 批量插入
+           * @param $dataAll
+           * @return bool
+           */
+          public function insertData($dataAll)
+          {
+              return $this::query()->insert($dataAll);
+          }
+}
