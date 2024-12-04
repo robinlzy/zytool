@@ -45,7 +45,7 @@ class HuaweiSms
             if ($resData['code'] != '000000' || $resData['description'] != 'Success') {
                 throw new \ErrorException('短信发送失败');
             }
-            \Ziyancs\Zytool\Tool\RedisOptions::set(sprintf(HuaweiSms::REDIS_KEY_SEND_PHONE, $mobile), $code, $aliRedisUseTime);
+            \Ziyancs\Zytool\Extends\RedisOptions::set(sprintf(HuaweiSms::REDIS_KEY_SEND_PHONE, $mobile), $code, $aliRedisUseTime);
             return true;
         } catch (\Throwable $e) {
             throw new \ErrorException('短信发送失败');
@@ -56,7 +56,7 @@ class HuaweiSms
     public static function checkSms($mobile, $code): bool
     {
         $redisKey = sprintf(HuaWeiSms::REDIS_KEY_SEND_PHONE, $mobile);
-        $phoneCode = RedisOptions::get($redisKey);
+        $phoneCode =   \Ziyancs\Zytool\Extends\RedisOptions::get($redisKey);
         if ((string)$code != (string)$phoneCode) {
             return false;
         }
