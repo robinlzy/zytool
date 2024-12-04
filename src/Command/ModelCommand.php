@@ -17,7 +17,7 @@ use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Input\InputArgument;
-use function Ziyancs\Library\Command\snakeToCamel;
+use function Ziyancs\Zytool\Command\snakeToCamel;
 
 #[Command]
 class ModelCommand extends HyperfCommand

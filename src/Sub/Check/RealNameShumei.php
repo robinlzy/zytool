@@ -1,7 +1,7 @@
 <?php
 
 namespace Ziyancs\Zytool\Sub\Check;
-use Ziyancs\Library\Extends\RequestLibrary;
+use Ziyancs\Zytool\Extends\RequestLibrary;
 
 /**
  * 素美实名认证

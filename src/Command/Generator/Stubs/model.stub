@@ -63,6 +63,6 @@ class {CLASS_NAME} extends Model
 
     public function deleteRedis($keys)
     {
-        \Ziyancs\Library\Tool\CacheOption::forgetRedis($keys);
+        \Ziyancs\Zytool\Tool\CacheOption::forgetRedis($keys);
     }
 }

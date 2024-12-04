@@ -2,8 +2,8 @@
 
 namespace Ziyancs\Zytool\Sub\Sms;
 
-use Ziyancs\Library\Extends\RequestLibrary;
-use Ziyancs\Library\Tool\RedisOptions;
+use Ziyancs\Zytool\Extends\RequestLibrary;
+use Ziyancs\Zytool\Tool\RedisOptions;
 
 class AliyunSms
 {
